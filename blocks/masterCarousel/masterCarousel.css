@@ -1,0 +1,192 @@
+/* Master Carousel Block Styles */
+.masterCarousel {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Main carousel container */
+.masterCarousel-container {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  position: relative;
+}
+
+/* Main image container */
+.masterCarousel-main {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.masterCarousel-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Thumbnails container */
+.masterCarousel-thumbnails {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 200px;
+}
+
+.masterCarousel-thumbnail {
+  position: relative;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 200px;
+}
+
+.masterCarousel-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.masterCarousel-thumbnail:hover img {
+  transform: scale(1.05);
+}
+
+.masterCarousel-thumbnail.active {
+  border: 2px solid var(--link-color);
+}
+
+/* Content overlay */
+.masterCarousel-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  max-width: 450px;
+  margin: 20px;
+}
+
+.masterCarousel-title {
+  font-family: var(--heading-font-family);
+  font-weight: 700;
+  font-size: var(--heading-font-size-l);
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+}
+
+.masterCarousel-title em {
+  font-style: normal;
+}
+
+.masterCarousel-description {
+  font-size: var(--body-font-size-s);
+  margin: 0 0 20px 0;
+}
+
+/* Countdown timer */
+.masterCarousel-countdown {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: var(--body-font-size-xs);
+}
+
+.masterCarousel-countdown-label {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.masterCarousel-countdown-label svg {
+  margin-right: 8px;
+}
+
+.masterCarousel-countdown-timer {
+  display: flex;
+  gap: 10px;
+}
+
+.masterCarousel-countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.masterCarousel-countdown-value {
+  font-weight: 700;
+  font-size: var(--body-font-size-m);
+}
+
+.masterCarousel-countdown-separator {
+  font-weight: 700;
+  font-size: var(--body-font-size-m);
+  align-self: flex-start;
+  margin-top: 2px;
+}
+
+/* Footer note */
+.masterCarousel-footer {
+  font-size: var(--body-font-size-xs);
+  margin-top: 20px;
+  font-style: italic;
+}
+
+/* Button styles */
+.masterCarousel-button {
+  display: inline-block;
+  background-color: #6b8e23; /* Olive green color from the image */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.masterCarousel-button:hover {
+  background-color: #556b2f;
+  text-decoration: none;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .masterCarousel-container {
+    flex-direction: column;
+  }
+  
+  .masterCarousel-thumbnails {
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+  }
+  
+  .masterCarousel-thumbnail {
+    height: 120px;
+    width: 100%;
+  }
+  
+  .masterCarousel-content {
+    max-width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 600px) {
+  .masterCarousel-content {
+    position: relative;
+    margin: 0;
+    max-width: 100%;
+    border-radius: 0 0 8px 8px;
+  }
+  
+  .masterCarousel-countdown-timer {
+    flex-wrap: wrap;
+  }
+}

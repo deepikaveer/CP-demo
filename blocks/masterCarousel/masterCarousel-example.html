@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master Carousel Example</title>
+  <link rel="stylesheet" href="../../styles/styles.css">
+  <link rel="stylesheet" href="masterCarousel.css">
+  <style>
+    body {
+      display: block;
+      padding: 20px;
+    }
+    
+    .example-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="example-container">
+    <h1>Master Carousel Example</h1>
+    
+    <div class="masterCarousel block">
+      <!-- Main Image -->
+      <div>
+        <div>
+          <picture>
+            <img src="https://source.unsplash.com/random/1200x800/?forest,family" alt="Family enjoying spring at Center Parcs">
+          </picture>
+        </div>
+      </div>
+      
+      <!-- Thumbnail 1 -->
+      <div>
+        <div>
+          <picture>
+            <img src="https://source.unsplash.com/random/400x600/?forest,woman" alt="Woman walking in forest">
+          </picture>
+        </div>
+      </div>
+      
+      <!-- Thumbnail 2 -->
+      <div>
+        <div>
+          <picture>
+            <img src="https://source.unsplash.com/random/400x600/?lake,boat" alt="Family boating on lake">
+          </picture>
+        </div>
+      </div>
+      
+      <!-- Content -->
+      <div>
+        <!-- Title and Description -->
+        <div>
+          <h3>Step into <em>Spring</em> from £399*</h3>
+          <p>Enjoy a refreshing spring break at Center Parcs, surrounded by blooming nature and endless family adventures.</p>
+        </div>
+        
+        <!-- Button -->
+        <div>
+          <a href="#">Discover Spring Breaks</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script type="module">
+    import { createOptimizedPicture } from '../../scripts/aem.js';
+    import { moveInstrumentation } from '../../scripts/scripts.js';
+    import decorate from './masterCarousel.js';
+    
+    // Mock functions if they don't exist in this context
+    window.createOptimizedPicture = createOptimizedPicture || function(src, alt, eager, breakpoints) {
+      const picture = document.createElement('picture');
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = alt || '';
+      picture.appendChild(img);
+      return picture;
+    };
+    
+    window.moveInstrumentation = moveInstrumentation || function() {};
+    
+    // Initialize the block
+    const block = document.querySelector('.masterCarousel');
+    if (block) {
+      decorate(block);
+    }
+  </script>
+</body>
+</html>

@@ -15,7 +15,8 @@
       "hero",
       "cards",
       "columns",
-      "fragment"
+      "fragment",
+      "master-carousel"
     ]
   },
   {
@@ -37,6 +38,12 @@
       "image",
       "button",
       "title"
+    ]
+  },
+  {
+    "id": "master-carousel",
+    "components": [
+      "carousel-item"
     ]
   }
 ]
