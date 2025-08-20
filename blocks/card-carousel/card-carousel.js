@@ -1,4 +1,4 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
+import { createOptimizedPicture, moveInstrumentation } from '../../scripts/aem.js';
 
 /**
  * Creates a card element
@@ -14,6 +14,9 @@ function createCard(cardData) {
   // Create image
   if (image) {
     const picture = createOptimizedPicture(image.src, image.alt, false, [{ width: '600' }]);
+    if (image.originalImg) {
+      moveInstrumentation(image.originalImg, picture.querySelector('img'));
+    }
     const imageWrapper = document.createElement('div');
     imageWrapper.className = 'card-carousel-image';
     imageWrapper.appendChild(picture);
@@ -153,6 +156,7 @@ export default function decorate(block) {
         cardData.image = {
           src: img.src,
           alt: img.alt || '',
+          originalImg: img
         };
       }
       
@@ -179,8 +183,50 @@ export default function decorate(block) {
     }
   });
   
-  // Define number of visible cards
-  const visibleCards = 4;
+  // Get cards per view setting from block data
+  const blockConfig = {};
+  const blockRows = [...block.querySelectorAll(':scope > div')];
+  
+  // Find configuration rows (those with 2 columns where first column is a label)
+  blockRows.forEach((row) => {
+    const cols = [...row.children];
+    if (cols.length === 2) {
+      const key = cols[0].textContent.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+      const value = cols[1].textContent.trim();
+      if (key && value) {
+        blockConfig[key] = value;
+        
+        // Remove this row from the block as it's a configuration row, not a card
+        row.remove();
+      }
+    }
+  });
+  
+  // Define number of visible cards based on screen size
+  let maxDesktopCards = parseInt(blockConfig.cardsperview || blockConfig.cardsperviewdesktop || '4', 10);
+  if (isNaN(maxDesktopCards) || maxDesktopCards < 2 || maxDesktopCards > 4) {
+    maxDesktopCards = 4; // Default to 4 if invalid
+  }
+  
+  let visibleCards = maxDesktopCards;
+  
+  // Adjust visible cards based on screen width
+  function updateVisibleCards() {
+    const width = window.innerWidth;
+    if (width < 600) {
+      visibleCards = 1;
+    } else if (width < 900) {
+      visibleCards = 2;
+    } else if (width < 1200) {
+      visibleCards = 3;
+    } else {
+      visibleCards = maxDesktopCards;
+    }
+    return visibleCards;
+  }
+  
+  // Initial calculation
+  updateVisibleCards();
   
   // Create cards and add to track
   cards.forEach((cardData) => {
@@ -199,13 +245,16 @@ export default function decorate(block) {
   block.textContent = '';
   block.appendChild(container);
   
+  // Set data attribute for CSS styling
+  block.setAttribute('data-cards-per-view', maxDesktopCards.toString());
+  
   // Set up carousel functionality
   let currentIndex = 0;
-  const maxIndex = Math.max(0, cards.length - visibleCards);
+  let maxIndex = Math.max(0, cards.length - visibleCards);
   
-  const prevButton = navigation.querySelector('.card-carousel-button-prev');
-  const nextButton = navigation.querySelector('.card-carousel-button-next');
-  const indicators = navigation.querySelectorAll('.card-carousel-progress-indicator');
+  let prevButton = navigation.querySelector('.card-carousel-button-prev');
+  let nextButton = navigation.querySelector('.card-carousel-button-next');
+  let indicators = navigation.querySelectorAll('.card-carousel-progress-indicator');
   
   // Function to update carousel position
   function updateCarousel(index) {
@@ -250,6 +299,45 @@ export default function decorate(block) {
   
   // Handle responsive behavior
   function handleResize() {
+    // Update visible cards based on screen size
+    const oldVisibleCards = visibleCards;
+    updateVisibleCards();
+    
+    // If visible cards count changed, update navigation
+    if (oldVisibleCards !== visibleCards) {
+      // Remove old navigation
+      navigation.remove();
+      
+      // Create and add new navigation
+      const newNavigation = createNavigation(cards.length, visibleCards);
+      container.appendChild(newNavigation);
+      
+      // Update references
+      navigation = newNavigation;
+      prevButton = navigation.querySelector('.card-carousel-button-prev');
+      nextButton = navigation.querySelector('.card-carousel-button-next');
+      indicators = navigation.querySelectorAll('.card-carousel-progress-indicator');
+      
+      // Re-add event listeners to buttons
+      prevButton.addEventListener('click', () => {
+        updateCarousel(currentIndex - 1);
+      });
+      
+      nextButton.addEventListener('click', () => {
+        updateCarousel(currentIndex + 1);
+      });
+      
+      // Re-add event listeners to indicators
+      indicators.forEach((indicator, i) => {
+        indicator.addEventListener('click', () => {
+          updateCarousel(i);
+        });
+      });
+    }
+    
+    // Recalculate max index
+    maxIndex = Math.max(0, cards.length - visibleCards);
+    
     // Reset transform
     track.style.transition = 'none';
     track.style.transform = 'translateX(0)';

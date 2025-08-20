@@ -28,6 +28,12 @@
     <h1>Card Carousel Example</h1>
     
     <div class="card-carousel block">
+      <!-- Configuration -->
+      <div>
+        <div>Cards Per View</div>
+        <div>3</div>
+      </div>
+      
       <!-- Card 1 -->
       <div>
         <div>
@@ -126,6 +132,17 @@
       img.alt = alt || '';
       picture.appendChild(img);
       return picture;
+    };
+    
+    window.moveInstrumentation = window.moveInstrumentation || function(sourceImg, targetImg) {
+      // Mock implementation for example
+      if (sourceImg && targetImg && sourceImg.dataset) {
+        Object.keys(sourceImg.dataset).forEach(key => {
+          if (key.startsWith('aue')) {
+            targetImg.dataset[key] = sourceImg.dataset[key];
+          }
+        });
+      }
     };
     
     // Initialize the block

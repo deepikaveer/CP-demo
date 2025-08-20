@@ -3,6 +3,7 @@
   position: relative;
   width: 100%;
   margin: 40px 0;
+  overflow: hidden; /* Ensure content doesn't overflow */
 }
 
 /* Main carousel container */
@@ -25,7 +26,7 @@
 
 /* Individual card item */
 .card-carousel-item {
-  flex: 0 0 calc(25% - 18px); /* Show 4 cards with gap */
+  flex: 0 0 calc(25% - 18px); /* Default: Show 4 cards with gap */
   min-width: 280px;
   border-radius: 12px;
   overflow: hidden;
@@ -33,6 +34,15 @@
   background-color: #fff;
   display: flex;
   flex-direction: column;
+}
+
+/* Support for different card counts */
+.card-carousel[data-cards-per-view="2"] .card-carousel-item {
+  flex: 0 0 calc(50% - 12px); /* Show 2 cards with gap */
+}
+
+.card-carousel[data-cards-per-view="3"] .card-carousel-item {
+  flex: 0 0 calc(33.333% - 16px); /* Show 3 cards with gap */
 }
 
 /* Card image container */
@@ -191,11 +201,22 @@
   .card-carousel-item {
     flex: 0 0 calc(50% - 12px); /* Show 2 cards */
   }
+  
+  .card-carousel-progress-bar {
+    height: 6px; /* Larger indicators for better touch targets */
+  }
+  
+  .card-carousel-button-prev,
+  .card-carousel-button-next {
+    width: 44px;
+    height: 44px;
+  }
 }
 
 @media (max-width: 600px) {
   .card-carousel-item {
     flex: 0 0 100%; /* Show 1 card */
+    min-width: 200px; /* Allow smaller cards on mobile */
   }
   
   .card-carousel-navigation {
@@ -205,5 +226,23 @@
   
   .card-carousel-buttons {
     margin-left: 0;
+  }
+  
+  .card-carousel-progress-bar {
+    height: 8px; /* Even larger indicators for mobile */
+  }
+  
+  .card-carousel-button-prev,
+  .card-carousel-button-next {
+    width: 48px;
+    height: 48px;
+  }
+  
+  .card-carousel-title {
+    font-size: 18px;
+  }
+  
+  .card-carousel-description {
+    font-size: 14px;
   }
 }

@@ -142,6 +142,32 @@
     ]
   },
   {
+    "id": "card-carousel",
+    "fields": [
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "cardsPerView",
+        "label": "Cards Per View (Desktop)",
+        "value": "4",
+        "options": [
+          {
+            "value": "2",
+            "name": "2 Cards"
+          },
+          {
+            "value": "3",
+            "name": "3 Cards"
+          },
+          {
+            "value": "4",
+            "name": "4 Cards"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "card-item",
     "fields": [
       {
@@ -149,14 +175,16 @@
         "valueType": "string",
         "name": "image",
         "label": "Card Image",
-        "multi": false
+        "multi": false,
+        "required": true
       },
       {
         "component": "text",
         "valueType": "string",
         "name": "title",
         "label": "Card Title",
-        "value": ""
+        "value": "",
+        "required": true
       },
       {
         "component": "richtext",
@@ -170,14 +198,14 @@
         "valueType": "string",
         "name": "buttonText",
         "label": "Button Text",
-        "value": ""
+        "value": "Learn More"
       },
       {
         "component": "text",
         "valueType": "string",
         "name": "buttonLink",
         "label": "Button Link",
-        "value": ""
+        "value": "#"
       }
     ]
   },
