@@ -314,6 +314,27 @@
         "multi": false
       },
       {
+        "component": "text",
+        "valueType": "string",
+        "name": "posterAlt",
+        "label": "Poster Image Alt Text",
+        "value": ""
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "posterWidth",
+        "label": "Poster Image Width",
+        "value": 1600
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "posterHeight",
+        "label": "Poster Image Height",
+        "value": 900
+      },
+      {
         "component": "checkbox",
         "name": "allowFullscreen",
         "label": "Allow Fullscreen",
@@ -330,8 +351,15 @@
       {
         "component": "text",
         "valueType": "string",
+        "name": "playButtonTitle",
+        "label": "Play Button Title",
+        "value": "Play"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
         "name": "title",
-        "label": "Accessibility Title",
+        "label": "Video Accessibility Title",
         "value": "Video Content"
       }
     ]
