@@ -129,6 +129,7 @@ function createNavigation(totalSlides, visibleSlides) {
  * @param {Element} block The block element
  */
 export default function decorate(block) {
+  return false;
   // Create container elements
   const container = document.createElement('div');
   container.className = 'card-carousel-container';
