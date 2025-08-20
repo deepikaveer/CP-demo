@@ -132,7 +132,6 @@ function createCountdownTimer(days, hours, minutes, seconds) {
  * @param {Element} block The block element
  */
 export default function decorate(block) {
-  return false;
   // Create container elements
   const container = document.createElement('div');
   container.className = 'masterCarousel-container';
