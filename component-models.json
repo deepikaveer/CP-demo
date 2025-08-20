@@ -254,5 +254,45 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "video",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "url",
+        "label": "Video URL",
+        "value": ""
+      },
+      {
+        "component": "checkbox",
+        "name": "autoplay",
+        "label": "Autoplay",
+        "valueType": "boolean",
+        "value": false
+      },
+      {
+        "component": "checkbox",
+        "name": "fullscreen",
+        "label": "Allow Fullscreen",
+        "valueType": "boolean",
+        "value": true
+      },
+      {
+        "component": "checkbox",
+        "name": "pictureInPicture",
+        "label": "Allow Picture-in-Picture",
+        "valueType": "boolean",
+        "value": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Accessibility Title",
+        "value": ""
+      }
+    ]
   }
 ]

@@ -2,7 +2,8 @@
   {
     "id": "main",
     "components": [
-      "section"
+      "section",
+      "video"
     ]
   },
   {
@@ -16,6 +17,7 @@
       "cards",
       "columns",
       "fragment",
+      "video",
       "master-carousel"
     ]
   },
