@@ -23,9 +23,26 @@
         {
           "component": "text",
           "valueType": "string",
-          "name": "url",
-          "label": "Video URL",
+          "name": "videoId",
+          "label": "Video ID",
           "value": ""
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "source",
+          "label": "Video Source",
+          "value": "vimeo",
+          "options": [
+            {
+              "text": "Vimeo",
+              "value": "vimeo"
+            },
+            {
+              "text": "YouTube",
+              "value": "youtube"
+            }
+          ]
         },
         {
           "component": "checkbox",
@@ -36,7 +53,7 @@
         },
         {
           "component": "checkbox",
-          "name": "fullscreen",
+          "name": "allowFullscreen",
           "label": "Allow Fullscreen",
           "valueType": "boolean",
           "value": true
@@ -53,7 +70,7 @@
           "valueType": "string",
           "name": "title",
           "label": "Accessibility Title",
-          "value": ""
+          "value": "Content from Vimeo"
         }
       ]
     }
