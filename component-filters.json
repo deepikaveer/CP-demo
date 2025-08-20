@@ -19,7 +19,8 @@
       "fragment",
       "video",
       "master-carousel",
-      "card-carousel"
+      "card-carousel",
+      "thumbnail-carousel"
     ]
   },
   {
@@ -53,6 +54,12 @@
     "id": "master-carousel",
     "components": [
       "carousel-item"
+    ]
+  },
+  {
+    "id": "thumbnail-carousel",
+    "components": [
+      "thumbnail-item"
     ]
   }
 ]

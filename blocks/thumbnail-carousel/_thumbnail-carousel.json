@@ -1,0 +1,108 @@
+{
+  "definitions": [
+    {
+      "title": "Thumbnail Carousel",
+      "id": "thumbnail-carousel",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Thumbnail Carousel",
+              "filter": "thumbnail-carousel"
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "Thumbnail Item",
+      "id": "thumbnail-item",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block/item",
+            "template": {
+              "name": "Thumbnail Item",
+              "model": "thumbnail-item"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "thumbnail-carousel",
+      "fields": [
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "style",
+          "label": "Carousel Style",
+          "value": "default",
+          "options": [
+            {
+              "value": "default",
+              "name": "Default"
+            },
+            {
+              "value": "dark",
+              "name": "Dark"
+            },
+            {
+              "value": "light",
+              "name": "Light"
+            }
+          ]
+        },
+        {
+          "component": "select",
+          "valueType": "string",
+          "name": "navigationPosition",
+          "label": "Navigation Position",
+          "value": "bottom-right",
+          "options": [
+            {
+              "value": "bottom-right",
+              "name": "Bottom Right"
+            },
+            {
+              "value": "bottom-center",
+              "name": "Bottom Center"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thumbnail-item",
+      "fields": [
+        {
+          "component": "reference",
+          "valueType": "string",
+          "name": "image",
+          "label": "Slide Image",
+          "multi": false,
+          "required": true
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "altText",
+          "label": "Image Alt Text",
+          "value": "",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "thumbnail-carousel",
+      "components": [
+        "thumbnail-item"
+      ]
+    }
+  ]
+}

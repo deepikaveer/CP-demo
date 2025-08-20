@@ -1,0 +1,197 @@
+/* Thumbnail Carousel Block Styles */
+.thumbnail-carousel {
+  position: relative;
+  width: 100%;
+  margin: 40px 0;
+}
+
+/* Main carousel container */
+.thumbnail-carousel-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  position: relative;
+}
+
+/* Main image container */
+.thumbnail-carousel-main {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.thumbnail-carousel-main img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Navigation container */
+.thumbnail-carousel-navigation {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+  padding: 8px 16px;
+}
+
+/* Navigation position variants */
+.thumbnail-carousel-nav-bottom-center .thumbnail-carousel-navigation {
+  right: 50%;
+  transform: translateX(50%);
+}
+
+/* Style variants */
+.thumbnail-carousel-style-dark .thumbnail-carousel-navigation {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.thumbnail-carousel-style-dark .thumbnail-carousel-thumbnail {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.thumbnail-carousel-style-dark .thumbnail-carousel-thumbnail.active {
+  background-color: white;
+}
+
+.thumbnail-carousel-style-light .thumbnail-carousel-navigation {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.thumbnail-carousel-style-light .thumbnail-carousel-button-prev,
+.thumbnail-carousel-style-light .thumbnail-carousel-button-next {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+.thumbnail-carousel-style-light .thumbnail-carousel-thumbnail {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.thumbnail-carousel-style-light .thumbnail-carousel-thumbnail.active {
+  background-color: black;
+}
+
+/* Thumbnails container */
+.thumbnail-carousel-thumbnails {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE and Edge */
+  padding: 4px;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.thumbnail-carousel-thumbnails::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual thumbnail */
+.thumbnail-carousel-thumbnail {
+  flex: 0 0 auto;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.thumbnail-carousel-thumbnail img {
+  display: none; /* Hide the actual image */
+}
+
+.thumbnail-carousel-thumbnail:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.thumbnail-carousel-thumbnail.active {
+  background-color: white;
+  transform: scale(1.2);
+}
+
+/* Navigation buttons */
+.thumbnail-carousel-button-prev,
+.thumbnail-carousel-button-next {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.7);
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.thumbnail-carousel-button-prev:hover,
+.thumbnail-carousel-button-next:hover {
+  background-color: white;
+}
+
+.thumbnail-carousel-button-prev:disabled,
+.thumbnail-carousel-button-next:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.thumbnail-carousel-button-prev:disabled:hover,
+.thumbnail-carousel-button-next:disabled:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .thumbnail-carousel-navigation {
+    bottom: 15px;
+    right: 15px;
+    padding: 6px 12px;
+  }
+  
+  .thumbnail-carousel-thumbnail {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .thumbnail-carousel-button-prev,
+  .thumbnail-carousel-button-next {
+    width: 26px;
+    height: 26px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .thumbnail-carousel-navigation {
+    bottom: 10px;
+    right: 50%;
+    transform: translateX(50%);
+    padding: 5px 10px;
+  }
+  
+  .thumbnail-carousel-thumbnail {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .thumbnail-carousel-button-prev,
+  .thumbnail-carousel-button-next {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+}
