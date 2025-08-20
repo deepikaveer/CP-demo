@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Carousel Example</title>
+  <link rel="stylesheet" href="../../styles/styles.css">
+  <link rel="stylesheet" href="card-carousel.css">
+  <style>
+    body {
+      display: block;
+      padding: 20px;
+    }
+    
+    .example-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="example-container">
+    <h1>Card Carousel Example</h1>
+    
+    <div class="card-carousel block">
+      <!-- Card 1 -->
+      <div>
+        <div>
+          <picture>
+            <img src="https://source.unsplash.com/random/600x400/?activities,children" alt="Activities">
+          </picture>
+        </div>
+        <div>
+          <h3>Activities</h3>
+          <p>Enjoy a wide range of outdoor activities for the whole family.</p>
+          <p><a href="#">Activities →</a></p>
+        </div>
+      </div>
+      
+      <!-- Card 2 -->
+      <div>
+        <div>
+          <picture>
+            <img src="https://source.unsplash.com/random/600x400/?restaurant,food" alt="Restaurants">
+          </picture>
+        </div>
+        <div>
+          <h3>Restaurants</h3>
+          <p>Discover delicious dining options with fresh, local ingredients.</p>
+          <p><a href="#">Restaurants →</a></p>
+        </div>
+      </div>
+      
+      <!-- Card 3 -->
+      <div>
+        <div>
+          <picture>
+            <img src="https://source.unsplash.com/random/600x400/?spa,wellness" alt="Spa & Treatments">
+          </picture>
+        </div>
+        <div>
+          <h3>Spa & Treatments</h3>
+          <p>Relax and rejuvenate with our range of spa treatments and wellness options.</p>
+          <p><a href="#">Spa & Treatments →</a></p>
+        </div>
+      </div>
+      
+      <!-- Card 4 -->
+      <div>
+        <div>
+          <picture>
+            <img src="https://source.unsplash.com/random/600x400/?cycling,forest" alt="Cycling">
+          </picture>
+        </div>
+        <div>
+          <h3>Cycling</h3>
+          <p>Explore the beautiful surroundings on two wheels with our cycling trails.</p>
+          <p><a href="#">Cycling →</a></p>
+        </div>
+      </div>
+      
+      <!-- Card 5 -->
+      <div>
+        <div>
+          <picture>
+            <img src="https://source.unsplash.com/random/600x400/?treehouse,luxury" alt="Luxury Treehouses">
+          </picture>
+        </div>
+        <div>
+          <h3>Luxury Treehouses</h3>
+          <p>For when only the best will do, our Treehouses are our most luxurious accommodation.</p>
+          <p><a href="#">Learn more about Treehouses →</a></p>
+        </div>
+      </div>
+      
+      <!-- Card 6 -->
+      <div>
+        <div>
+          <picture>
+            <img src="https://source.unsplash.com/random/600x400/?cabin,woods" alt="Woodland Lodges">
+          </picture>
+        </div>
+        <div>
+          <h3>Woodland Lodges</h3>
+          <p>Comfortable and spacious lodges nestled in the heart of the forest.</p>
+          <p><a href="#">Explore Woodland Lodges →</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script type="module">
+    import { createOptimizedPicture } from '../../scripts/aem.js';
+    import decorate from './card-carousel.js';
+    
+    // Mock functions if they don't exist in this context
+    window.createOptimizedPicture = createOptimizedPicture || function(src, alt, eager, breakpoints) {
+      const picture = document.createElement('picture');
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = alt || '';
+      picture.appendChild(img);
+      return picture;
+    };
+    
+    // Initialize the block
+    const block = document.querySelector('.card-carousel');
+    if (block) {
+      decorate(block);
+    }
+  </script>
+</body>
+</html>

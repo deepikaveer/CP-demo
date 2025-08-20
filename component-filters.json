@@ -18,7 +18,14 @@
       "columns",
       "fragment",
       "video",
-      "master-carousel"
+      "master-carousel",
+      "card-carousel"
+    ]
+  },
+  {
+    "id": "card-carousel",
+    "components": [
+      "card-item"
     ]
   },
   {

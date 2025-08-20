@@ -1,0 +1,209 @@
+/* Card Carousel Block Styles */
+.card-carousel {
+  position: relative;
+  width: 100%;
+  margin: 40px 0;
+}
+
+/* Main carousel container */
+.card-carousel-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Track that holds all cards */
+.card-carousel-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.5s ease;
+  width: 100%;
+}
+
+/* Individual card item */
+.card-carousel-item {
+  flex: 0 0 calc(25% - 18px); /* Show 4 cards with gap */
+  min-width: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card image container */
+.card-carousel-image {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  position: relative;
+  overflow: hidden;
+}
+
+.card-carousel-image picture,
+.card-carousel-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Card content area */
+.card-carousel-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+/* Card title */
+.card-carousel-title {
+  font-family: var(--heading-font-family);
+  font-weight: 600;
+  font-size: var(--heading-font-size-xs);
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+
+/* Card description */
+.card-carousel-description {
+  font-size: var(--body-font-size-xs);
+  margin: 0 0 20px 0;
+  flex-grow: 1;
+}
+
+/* Card button */
+.card-carousel-button {
+  display: inline-flex;
+  align-items: center;
+  background-color: transparent;
+  color: #6b8e23; /* Olive green color from the image */
+  padding: 8px 0;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: var(--body-font-size-xs);
+  transition: color 0.3s ease;
+  align-self: flex-start;
+}
+
+.card-carousel-button:hover {
+  color: #556b2f;
+  text-decoration: none;
+}
+
+.card-carousel-button-arrow {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.card-carousel-button:hover .card-carousel-button-arrow {
+  transform: translateX(4px);
+}
+
+/* Navigation controls */
+.card-carousel-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+}
+
+/* Progress bar */
+.card-carousel-progress-container {
+  flex: 1;
+}
+
+.card-carousel-progress-bar {
+  display: flex;
+  gap: 8px;
+  height: 4px;
+}
+
+.card-carousel-progress-indicator {
+  flex: 1;
+  height: 100%;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card-carousel-progress-indicator.active {
+  background-color: #6b8e23; /* Olive green color from the image */
+}
+
+/* Navigation buttons */
+.card-carousel-buttons {
+  display: flex;
+  gap: 16px;
+  margin-left: 24px;
+}
+
+.card-carousel-button-prev,
+.card-carousel-button-next {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #6b8e23;
+  background-color: transparent;
+  color: #6b8e23;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card-carousel-button-prev:hover,
+.card-carousel-button-next:hover {
+  background-color: #6b8e23;
+  color: white;
+}
+
+.card-carousel-button-prev:disabled,
+.card-carousel-button-next:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #ccc;
+  color: #ccc;
+}
+
+.card-carousel-button-prev:disabled:hover,
+.card-carousel-button-next:disabled:hover {
+  background-color: transparent;
+  color: #ccc;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .card-carousel-item {
+    flex: 0 0 calc(33.333% - 16px); /* Show 3 cards */
+  }
+}
+
+@media (max-width: 900px) {
+  .card-carousel-item {
+    flex: 0 0 calc(50% - 12px); /* Show 2 cards */
+  }
+}
+
+@media (max-width: 600px) {
+  .card-carousel-item {
+    flex: 0 0 100%; /* Show 1 card */
+  }
+  
+  .card-carousel-navigation {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .card-carousel-buttons {
+    margin-left: 0;
+  }
+}
