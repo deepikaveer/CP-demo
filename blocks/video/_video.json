@@ -24,7 +24,7 @@
           "component": "text",
           "valueType": "string",
           "name": "videoId",
-          "label": "Video ID",
+          "label": "Video ID/URL",
           "value": ""
         },
         {
@@ -41,15 +41,39 @@
             {
               "text": "YouTube",
               "value": "youtube"
+            },
+            {
+              "text": "YouTube (without poster)",
+              "value": "youtube_no_poster"
+            },
+            {
+              "text": "MP4 Video",
+              "value": "mp4"
+            },
+            {
+              "text": "MP4 Video (without poster image)",
+              "value": "mp4_no_poster"
+            },
+            {
+              "text": "MP4 Video w/ autoplay variant",
+              "value": "mp4_autoplay"
+            },
+            {
+              "text": "YouTube Video w/ autoplay variant",
+              "value": "youtube_autoplay"
+            },
+            {
+              "text": "Vimeo Video w/ autoplay variant",
+              "value": "vimeo_autoplay"
             }
           ]
         },
         {
-          "component": "checkbox",
-          "name": "autoplay",
-          "label": "Autoplay",
-          "valueType": "boolean",
-          "value": false
+          "component": "reference",
+          "valueType": "string",
+          "name": "poster",
+          "label": "Poster Image",
+          "multi": false
         },
         {
           "component": "checkbox",
@@ -70,7 +94,7 @@
           "valueType": "string",
           "name": "title",
           "label": "Accessibility Title",
-          "value": "Content from Vimeo"
+          "value": "Video Content"
         }
       ]
     }
