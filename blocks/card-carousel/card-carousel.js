@@ -1,4 +1,5 @@
-import { createOptimizedPicture, moveInstrumentation } from '../../scripts/aem.js';
+import { createOptimizedPicture } from '../../scripts/aem.js';
+import { moveInstrumentation } from '../../scripts/scripts.js';
 
 /**
  * Creates a card element
@@ -129,7 +130,6 @@ function createNavigation(totalSlides, visibleSlides) {
  * @param {Element} block The block element
  */
 export default function decorate(block) {
-  return false;
   // Create container elements
   const container = document.createElement('div');
   container.className = 'card-carousel-container';
