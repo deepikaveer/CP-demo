@@ -284,46 +284,6 @@
     ]
   },
   {
-    "id": "carousel-item",
-    "fields": [
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "image",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "richtext",
-        "name": "title",
-        "value": "Step into <em>Spring</em> from £399*",
-        "label": "Title",
-        "valueType": "string"
-      },
-      {
-        "component": "richtext",
-        "name": "description",
-        "value": "Enjoy a refreshing spring break at Center Parcs, surrounded by blooming nature and endless family adventures.",
-        "label": "Description",
-        "valueType": "string"
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "button",
-        "label": "Button",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "name": "footerNote",
-        "value": "Available to book for a limited time only*",
-        "label": "Footer Note",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
     "id": "thumbnail-carousel",
     "fields": [
       {

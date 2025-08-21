@@ -52,7 +52,8 @@
         "columns",
         "fragment",
         "video",
-        "card-carousel"
+        "card-carousel",
+        "thumbnail-carousel"
       ]
     }
   ]

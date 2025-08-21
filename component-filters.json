@@ -18,7 +18,8 @@
       "columns",
       "fragment",
       "video",
-      "card-carousel"
+      "card-carousel",
+      "thumbnail-carousel"
     ]
   },
   {
@@ -46,12 +47,6 @@
       "image",
       "button",
       "title"
-    ]
-  },
-  {
-    "id": "master-carousel",
-    "components": [
-      "carousel-item"
     ]
   },
   {
