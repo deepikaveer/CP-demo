@@ -124,9 +124,31 @@ export default function decorate(block) {
       const img = cols[0].querySelector('img');
       if (img) {
         images.push(img);
+      } else {
+        // Check if this is a thumbnail-item component
+        const thumbnailItem = cols[0].querySelector('.thumbnail-item');
+        if (thumbnailItem) {
+          const thumbnailImg = thumbnailItem.querySelector('img');
+          if (thumbnailImg) {
+            images.push(thumbnailImg);
+          }
+        }
       }
     }
   });
+  
+  // If no images were found, add placeholder images for authoring
+  if (images.length === 0) {
+    // Create placeholder images
+    for (let i = 0; i < 3; i += 1) {
+      const placeholderImg = document.createElement('img');
+      placeholderImg.src = 'data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20fill%3D%22%23ddd%22%20width%3D%22800%22%20height%3D%22400%22%2F%3E%3Ctext%20fill%3D%22%23555%22%20font-family%3D%22sans-serif%22%20font-size%3D%2230%22%20x%3D%22400%22%20y%3D%22200%22%20text-anchor%3D%22middle%22%3EPlaceholder%20Image%20${i + 1}%3C%2Ftext%3E%3C%2Fsvg%3E';
+      placeholderImg.alt = `Placeholder Image ${i + 1}`;
+      placeholderImg.width = 800;
+      placeholderImg.height = 400;
+      images.push(placeholderImg);
+    }
+  }
   
   // Create main image
   if (images.length > 0) {

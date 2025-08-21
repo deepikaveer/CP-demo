@@ -5,6 +5,19 @@
   margin: 40px 0;
 }
 
+/* Thumbnail Item Styles */
+.thumbnail-item {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.thumbnail-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Main carousel container */
 .thumbnail-carousel-container {
   display: flex;
