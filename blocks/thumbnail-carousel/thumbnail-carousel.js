@@ -150,6 +150,15 @@ export default function decorate(block) {
     }
   }
   
+  // Create a message for authors to add thumbnail items
+  const authoringMessage = document.createElement('div');
+  authoringMessage.className = 'thumbnail-carousel-authoring-message';
+  authoringMessage.innerHTML = `
+    <p>To add images to this carousel, use the "+" button in the editor to add Thumbnail Item components.</p>
+    <p>Each Thumbnail Item should contain an image that will be displayed in the carousel.</p>
+  `;
+  block.appendChild(authoringMessage);
+  
   // Create main image
   if (images.length > 0) {
     const mainImg = images[0];
@@ -264,7 +273,9 @@ export default function decorate(block) {
   mainImageContainer.appendChild(navigation);
   container.appendChild(mainImageContainer);
   
-  // Replace block content
+  // Replace block content but keep the authoring message
+  const authoringMessageCopy = authoringMessage.cloneNode(true);
   block.textContent = '';
   block.appendChild(container);
+  block.appendChild(authoringMessageCopy);
 }

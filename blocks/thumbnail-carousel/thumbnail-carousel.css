@@ -18,6 +18,26 @@
   display: block;
 }
 
+/* Authoring Message Styles */
+.thumbnail-carousel-authoring-message {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  color: #495057;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.thumbnail-carousel-authoring-message p {
+  margin: 0 0 10px 0;
+}
+
+.thumbnail-carousel-authoring-message p:last-child {
+  margin-bottom: 0;
+}
+
 /* Main carousel container */
 .thumbnail-carousel-container {
   display: flex;
