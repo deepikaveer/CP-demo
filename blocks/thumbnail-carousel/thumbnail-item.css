@@ -1,0 +1,27 @@
+/* Thumbnail Item Styles */
+.thumbnail-item {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.thumbnail-item-image-container {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.thumbnail-item-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.thumbnail-item:hover .thumbnail-item-image {
+  transform: scale(1.05);
+}
