@@ -1,8 +1,7 @@
 <!-- This is an example of how to use the thumbnail-carousel block -->
-<!-- The block will display a main image with thumbnail navigation -->
-<!-- Each row with an image will be included in the carousel -->
+<!-- The block will display a main image with thumbnail navigation and content overlay -->
 
-<!-- Example 1: Default configuration -->
+<!-- Example 1: Default configuration (similar to the first image in the design) -->
 <div class="thumbnail-carousel">
   <!-- Configuration rows (optional) -->
   <div>
@@ -14,100 +13,158 @@
     <div>bottom-right</div>
   </div>
   
-  <!-- Content rows with Thumbnail Item components -->
-  <!-- In AEM, you would add Thumbnail Item components here -->
+  <!-- First row: Image and Content -->
   <div>
+    <!-- First column: Thumbnail Item component with image -->
     <div>
-      <!-- This is a Thumbnail Item component -->
       <div class="thumbnail-item">
         <picture>
-          <img src="/path/to/image1.jpg" alt="Image 1 description">
+          <img src="/path/to/lodge1.jpg" alt="Executive Lodge exterior view">
+        </picture>
+      </div>
+    </div>
+    
+    <!-- Second column: Content information -->
+    <div>
+      <p class="subtitle">Executive Lodges</p>
+      <h2>A touch of added <em>luxury</em></h2>
+      
+      <!-- Icons with text -->
+      <div class="icons">
+        <div class="icon">
+          <img src="/path/to/bedroom-icon.svg" alt="Bedroom icon">
+          2 to 6 Bedrooms
+        </div>
+        <div class="icon">
+          <img src="/path/to/guests-icon.svg" alt="Guests icon">
+          Up to 12 Guests
+        </div>
+      </div>
+      
+      <p>Give a touch more luxury to your short break in the forest with a log cabin inspired Executive Lodge. Offering all the family-friendly features from our Woodland Lodges plus a range of additional luxuries.</p>
+      
+      <a href="/executive-lodges">View executive lodges</a>
+    </div>
+  </div>
+  
+  <!-- Additional Thumbnail Items -->
+  <div>
+    <div>
+      <div class="thumbnail-item">
+        <picture>
+          <img src="/path/to/lodge2.jpg" alt="Executive Lodge interior">
         </picture>
       </div>
     </div>
   </div>
   <div>
     <div>
-      <!-- This is a Thumbnail Item component -->
       <div class="thumbnail-item">
         <picture>
-          <img src="/path/to/image2.jpg" alt="Image 2 description">
+          <img src="/path/to/lodge3.jpg" alt="Executive Lodge bedroom">
         </picture>
       </div>
     </div>
   </div>
   <div>
     <div>
-      <!-- This is a Thumbnail Item component -->
       <div class="thumbnail-item">
         <picture>
-          <img src="/path/to/image3.jpg" alt="Image 3 description">
+          <img src="/path/to/lodge4.jpg" alt="Executive Lodge living area">
         </picture>
       </div>
     </div>
   </div>
   <div>
     <div>
-      <!-- This is a Thumbnail Item component -->
       <div class="thumbnail-item">
         <picture>
-          <img src="/path/to/image4.jpg" alt="Image 4 description">
-        </picture>
-      </div>
-    </div>
-  </div>
-  <div>
-    <div>
-      <!-- This is a Thumbnail Item component -->
-      <div class="thumbnail-item">
-        <picture>
-          <img src="/path/to/image5.jpg" alt="Image 5 description">
+          <img src="/path/to/lodge5.jpg" alt="Executive Lodge exterior night view">
         </picture>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Example 2: Dark style with centered navigation -->
+<!-- Example 2: Mobile layout (similar to the second image in the design) -->
 <div class="thumbnail-carousel">
   <!-- Configuration rows -->
   <div>
     <div>Style</div>
-    <div>dark</div>
+    <div>default</div>
   </div>
   <div>
     <div>Navigation Position</div>
     <div>bottom-center</div>
   </div>
   
-  <!-- Content rows with Thumbnail Item components -->
-  <!-- In AEM, you would add Thumbnail Item components here -->
+  <!-- First row: Image and Content -->
   <div>
+    <!-- First column: Thumbnail Item component with image -->
     <div>
-      <!-- This is a Thumbnail Item component -->
       <div class="thumbnail-item">
         <picture>
-          <img src="/path/to/image1.jpg" alt="Image 1 description">
+          <img src="/path/to/woodland-lodge.jpg" alt="Woodland Lodge exterior view">
+        </picture>
+      </div>
+    </div>
+    
+    <!-- Second column: Content information -->
+    <div>
+      <p class="subtitle">Woodland Lodges</p>
+      <h2>Practical and <em>stylish</em>.</h2>
+      
+      <!-- Icons with text -->
+      <div class="icons">
+        <div class="icon">
+          <img src="/path/to/bedroom-icon.svg" alt="Bedroom icon">
+          2 to 6 Bedrooms
+        </div>
+        <div class="icon">
+          <img src="/path/to/guests-icon.svg" alt="Guests icon">
+          Up to 12 Guests
+        </div>
+      </div>
+      
+      <p>A firm favourite with families, our Woodland Lodges are as practical as they are popular. Designed with all shapes a sizes of families.</p>
+      
+      <a href="/woodland-lodges">View woodland lodges</a>
+    </div>
+  </div>
+  
+  <!-- Additional Thumbnail Items -->
+  <div>
+    <div>
+      <div class="thumbnail-item">
+        <picture>
+          <img src="/path/to/woodland2.jpg" alt="Woodland Lodge interior">
         </picture>
       </div>
     </div>
   </div>
   <div>
     <div>
-      <!-- This is a Thumbnail Item component -->
       <div class="thumbnail-item">
         <picture>
-          <img src="/path/to/image2.jpg" alt="Image 2 description">
+          <img src="/path/to/woodland3.jpg" alt="Woodland Lodge bedroom">
         </picture>
       </div>
     </div>
   </div>
   <div>
     <div>
-      <!-- This is a Thumbnail Item component -->
       <div class="thumbnail-item">
         <picture>
-          <img src="/path/to/image3.jpg" alt="Image 3 description">
+          <img src="/path/to/woodland4.jpg" alt="Woodland Lodge exterior">
+        </picture>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div class="thumbnail-item">
+        <picture>
+          <img src="/path/to/woodland5.jpg" alt="Woodland Lodge exterior night view">
         </picture>
       </div>
     </div>
@@ -122,24 +179,55 @@
     <div>light</div>
   </div>
   
-  <!-- Content rows with Thumbnail Item components -->
-  <!-- In AEM, you would add Thumbnail Item components here -->
+  <!-- First row: Image and Content -->
   <div>
+    <!-- First column: Thumbnail Item component with image -->
     <div>
-      <!-- This is a Thumbnail Item component -->
       <div class="thumbnail-item">
         <picture>
-          <img src="/path/to/image1.jpg" alt="Image 1 description">
+          <img src="/path/to/exclusive-lodge.jpg" alt="Exclusive Lodge exterior view">
+        </picture>
+      </div>
+    </div>
+    
+    <!-- Second column: Content information -->
+    <div>
+      <p class="subtitle">Exclusive Lodges</p>
+      <h2>Premium <em>comfort</em></h2>
+      
+      <!-- Icons with text -->
+      <div class="icons">
+        <div class="icon">
+          <img src="/path/to/bedroom-icon.svg" alt="Bedroom icon">
+          4 to 8 Bedrooms
+        </div>
+        <div class="icon">
+          <img src="/path/to/guests-icon.svg" alt="Guests icon">
+          Up to 16 Guests
+        </div>
+      </div>
+      
+      <p>Our most luxurious accommodation option, perfect for special occasions and family gatherings.</p>
+      
+      <a href="/exclusive-lodges">View exclusive lodges</a>
+    </div>
+  </div>
+  
+  <!-- Additional Thumbnail Items -->
+  <div>
+    <div>
+      <div class="thumbnail-item">
+        <picture>
+          <img src="/path/to/exclusive2.jpg" alt="Exclusive Lodge interior">
         </picture>
       </div>
     </div>
   </div>
   <div>
     <div>
-      <!-- This is a Thumbnail Item component -->
       <div class="thumbnail-item">
         <picture>
-          <img src="/path/to/image2.jpg" alt="Image 2 description">
+          <img src="/path/to/exclusive3.jpg" alt="Exclusive Lodge bedroom">
         </picture>
       </div>
     </div>

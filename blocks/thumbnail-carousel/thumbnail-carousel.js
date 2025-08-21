@@ -2,6 +2,81 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 /**
+ * Creates a content element for the carousel
+ * @param {Object} contentData The content data
+ * @returns {Element} The content element
+ */
+function createContent(contentData) {
+  const { title, subtitle, description, icons, buttonText, buttonLink } = contentData;
+  
+  const content = document.createElement('div');
+  content.className = 'thumbnail-carousel-content';
+  
+  // Add subtitle if available
+  if (subtitle) {
+    const subtitleEl = document.createElement('div');
+    subtitleEl.className = 'thumbnail-carousel-subtitle';
+    subtitleEl.textContent = subtitle;
+    content.appendChild(subtitleEl);
+  }
+  
+  // Add title if available
+  if (title) {
+    const titleEl = document.createElement('h2');
+    titleEl.className = 'thumbnail-carousel-title';
+    titleEl.innerHTML = title;
+    content.appendChild(titleEl);
+  }
+  
+  // Add icons if available
+  if (icons && icons.length > 0) {
+    const iconsContainer = document.createElement('div');
+    iconsContainer.className = 'thumbnail-carousel-icons';
+    
+    icons.forEach(icon => {
+      const iconWrapper = document.createElement('div');
+      iconWrapper.className = 'thumbnail-carousel-icon';
+      
+      const iconImg = icon.img;
+      const iconText = icon.text;
+      
+      if (iconImg) {
+        iconWrapper.appendChild(iconImg.cloneNode(true));
+      }
+      
+      if (iconText) {
+        const textEl = document.createElement('span');
+        textEl.textContent = iconText;
+        iconWrapper.appendChild(textEl);
+      }
+      
+      iconsContainer.appendChild(iconWrapper);
+    });
+    
+    content.appendChild(iconsContainer);
+  }
+  
+  // Add description if available
+  if (description) {
+    const descEl = document.createElement('div');
+    descEl.className = 'thumbnail-carousel-description';
+    descEl.innerHTML = description;
+    content.appendChild(descEl);
+  }
+  
+  // Add button if available
+  if (buttonText && buttonLink) {
+    const button = document.createElement('a');
+    button.className = 'thumbnail-carousel-button';
+    button.href = buttonLink;
+    button.textContent = buttonText;
+    content.appendChild(button);
+  }
+  
+  return content;
+}
+
+/**
  * Creates navigation controls for the carousel
  * @param {Array} images Array of image elements
  * @returns {Element} The navigation controls element
@@ -14,7 +89,7 @@ function createNavigation(images) {
   const thumbnailsContainer = document.createElement('div');
   thumbnailsContainer.className = 'thumbnail-carousel-thumbnails';
   
-  // Create thumbnails as dots
+  // Create thumbnails as actual small images
   images.forEach((img, index) => {
     const thumbnail = document.createElement('div');
     thumbnail.className = 'thumbnail-carousel-thumbnail';
@@ -29,8 +104,7 @@ function createNavigation(images) {
       thumbnail.setAttribute('aria-selected', 'false');
     }
     
-    // We still create the image element but it's hidden via CSS
-    // This maintains the connection to the original image for tracking
+    // Create optimized thumbnail image
     const thumbImg = createOptimizedPicture(img.src, img.alt, false, [{ width: '100' }]);
     moveInstrumentation(img, thumbImg.querySelector('img'));
     thumbnail.appendChild(thumbImg);
@@ -59,8 +133,8 @@ function createNavigation(images) {
   }
   
   // Assemble navigation - order changed to match design
-  navigation.appendChild(thumbnailsContainer);
   navigation.appendChild(prevButton);
+  navigation.appendChild(thumbnailsContainer);
   navigation.appendChild(nextButton);
   
   return navigation;
@@ -113,8 +187,16 @@ export default function decorate(block) {
   const rows = [...block.children];
   if (rows.length === 0) return;
   
-  // Extract images
+  // Extract images and content data
   const images = [];
+  const contentData = {
+    subtitle: '',
+    title: '',
+    description: '',
+    icons: [],
+    buttonText: '',
+    buttonLink: ''
+  };
   
   rows.forEach((row) => {
     const cols = [...row.children];
@@ -132,6 +214,47 @@ export default function decorate(block) {
           if (thumbnailImg) {
             images.push(thumbnailImg);
           }
+        }
+      }
+      
+      // Extract content data from second column if it exists
+      if (cols.length >= 2) {
+        // Look for subtitle (usually a small text before the title)
+        const subtitle = cols[1].querySelector('p.subtitle, .subtitle, em');
+        if (subtitle) {
+          contentData.subtitle = subtitle.textContent.trim();
+        }
+        
+        // Look for title
+        const title = cols[1].querySelector('h1, h2, h3, h4, h5, h6');
+        if (title) {
+          contentData.title = title.innerHTML.trim();
+        }
+        
+        // Look for icons (usually small images with text)
+        const icons = cols[1].querySelectorAll('.icon, .icons .icon');
+        if (icons.length > 0) {
+          icons.forEach(icon => {
+            const iconImg = icon.querySelector('img');
+            const iconText = icon.textContent.trim();
+            contentData.icons.push({ img: iconImg, text: iconText });
+          });
+        }
+        
+        // Look for description (usually paragraphs after the title)
+        const paragraphs = cols[1].querySelectorAll('p:not(.subtitle)');
+        if (paragraphs.length > 0) {
+          // Combine all paragraphs into one description
+          contentData.description = Array.from(paragraphs)
+            .map(p => p.innerHTML)
+            .join('<br><br>');
+        }
+        
+        // Look for button
+        const link = cols[1].querySelector('a');
+        if (link) {
+          contentData.buttonText = link.textContent.trim();
+          contentData.buttonLink = link.href;
         }
       }
     }
@@ -167,6 +290,12 @@ export default function decorate(block) {
     mainImageContainer.appendChild(optimizedPic);
   }
   
+  // Create content section if there's content data
+  if (contentData.title || contentData.description || contentData.buttonText) {
+    const contentSection = createContent(contentData);
+    mainImageContainer.appendChild(contentSection);
+  }
+  
   // Create navigation with thumbnails
   const navigation = createNavigation(images);
   
@@ -186,8 +315,8 @@ export default function decorate(block) {
     
     currentIndex = newIndex;
     
-    // Update main image without removing navigation
-    const mainImgContainer = mainImageContainer.querySelector('picture') || mainImageContainer.firstChild;
+    // Update main image without removing navigation or content
+    const mainImgContainer = mainImageContainer.querySelector('picture');
     if (mainImgContainer) {
       const newMainImg = createOptimizedPicture(images[currentIndex].src, images[currentIndex].alt, false, [{ width: '1200' }]);
       mainImageContainer.replaceChild(newMainImg, mainImgContainer);
@@ -269,7 +398,7 @@ export default function decorate(block) {
     }
   }
   
-  // Assemble the carousel - navigation is now inside mainImageContainer
+  // Assemble the carousel
   mainImageContainer.appendChild(navigation);
   container.appendChild(mainImageContainer);
   
