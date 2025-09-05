@@ -163,7 +163,7 @@
           "plugins": {
             "xwalk": {
               "page": {
-                "resourceType": "core/franklin/components/columns/v1/columns",
+                "resourceType": "core/franklin/components/columns/v1/expandable-cross-sell-card",
                 "template": {
                   "name": "Expandable Cross-Sell Card",
                   "filter": "expandable-cross-sell-card",
