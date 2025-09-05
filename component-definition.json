@@ -157,23 +157,7 @@
             }
           }
         },
-        {
-          "title": "Expandable Cross-Sell",
-          "id": "expandable-cross-sell",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/block/v1/expandable-cross-sell",
-                "template": {
-                  "name": "Expandable Cross-Sell",
-                  "filter": "expandable-cross-sell",
-                  "columns": "1",
-                  "rows": "1"
-                }
-              }
-            }
-          }
-        },
+
         {
           "title": "Cross-Sell Content",
           "id": "cross-sell-content",
