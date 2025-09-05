@@ -200,6 +200,22 @@ function readBlockConfig(block) {
 }
 
 /**
+ * Processes the cross-sell content block
+ * @param {Element} block The content block element
+ * @returns {Object} The content configuration
+ */
+function processCrossSellContent(block) {
+  const contentConfig = readBlockConfig(block);
+  
+  // Process any additional content elements
+  [...block.children].forEach((row) => {
+    // Process any special content elements if needed
+  });
+  
+  return contentConfig;
+}
+
+/**
  * Decorates the expandable cross-sell block
  * @param {Element} block The block element
  */
@@ -207,7 +223,7 @@ export default function decorate(block) {
   // Extract configuration from block
   const config = readBlockConfig(block);
   
-  // Process image if present
+  // Process background image if present
   let backgroundImage = null;
   [...block.children].forEach((row) => {
     const cols = [...row.children];
@@ -218,6 +234,15 @@ export default function decorate(block) {
       }
     }
   });
+  
+  // Find cross-sell content blocks
+  const contentBlocks = [...block.querySelectorAll('.cross-sell-content')];
+  let contentConfig = {};
+  
+  if (contentBlocks.length > 0) {
+    // Process the first content block
+    contentConfig = processCrossSellContent(contentBlocks[0]);
+  }
   
   // Clear the block content
   block.textContent = '';
@@ -235,6 +260,11 @@ export default function decorate(block) {
     const picture = createOptimizedPicture(backgroundImage.src, backgroundImage.alt, false, [{ width: '2000' }]);
     picture.className = 'expandable-cross-sell-background';
     blockWrapper.appendChild(picture);
+  } else if (config.backgroundImage) {
+    // Try to use background image from config
+    const picture = createOptimizedPicture(config.backgroundImage, 'Background Image', false, [{ width: '2000' }]);
+    picture.className = 'expandable-cross-sell-background';
+    blockWrapper.appendChild(picture);
   }
   
   // Create timer with default values (can be overridden by config)
@@ -245,13 +275,13 @@ export default function decorate(block) {
   
   const timer = createCountdownTimer(days, hours, minutes, seconds);
   
-  // Create content
+  // Create content using either the content block config or the main config
   const content = createContent({
-    heading: config.heading || 'Step into Spring from £399*',
-    description: config.description || 'Enjoy a refreshing spring break at Center Parcs, surrounded by blooming nature and endless family adventures.',
-    ctaText: config.ctatext || 'Discover Spring Breaks',
-    ctaLink: config.ctalink || '#',
-    note: config.note || 'Available to book for a limited time only*'
+    heading: contentConfig.heading || config.heading || 'Step into Spring from £399*',
+    description: contentConfig.description || config.description || 'Enjoy a refreshing spring break at Center Parcs, surrounded by blooming nature and endless family adventures.',
+    ctaText: contentConfig.ctatext || config.ctatext || 'Discover Spring Breaks',
+    ctaLink: contentConfig.ctalink || config.ctalink || '#',
+    note: contentConfig.note || config.note || 'Available to book for a limited time only*'
   });
   
   // Add timer and content to wrapper

@@ -47,13 +47,22 @@
       "text",
       "image",
       "button",
-      "title",
-      "expandable-cross-sell"
+      "title"
     ]
   },
   {
     "id": "expandable-cross-sell",
-    "components": []
+    "components": [
+      "cross-sell-content"
+    ]
+  },
+  {
+    "id": "cross-sell-content",
+    "components": [
+      "text",
+      "image",
+      "button"
+    ]
   },
   {
     "id": "thumbnail-carousel",
