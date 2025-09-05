@@ -125,9 +125,10 @@ function createCountdownTimer(days = 28, hours = 20, minutes = 45, seconds = 20)
 /**
  * Creates the content for the expandable cross-sell block
  * @param {Object} config The block configuration
+ * @param {Array} additionalElements Additional content elements to include
  * @returns {Element} The content element
  */
-function createContent(config) {
+function createContent(config, additionalElements = []) {
   const contentContainer = document.createElement('div');
   contentContainer.className = 'expandable-cross-sell-content';
   
@@ -172,6 +173,18 @@ function createContent(config) {
     contentContainer.appendChild(note);
   }
   
+  // Add any additional content elements
+  if (additionalElements && additionalElements.length > 0) {
+    const additionalContent = document.createElement('div');
+    additionalContent.className = 'expandable-cross-sell-additional-content';
+    
+    additionalElements.forEach((element) => {
+      additionalContent.appendChild(element);
+    });
+    
+    contentContainer.appendChild(additionalContent);
+  }
+  
   return contentContainer;
 }
 
@@ -202,17 +215,23 @@ function readBlockConfig(block) {
 /**
  * Processes the cross-sell content block
  * @param {Element} block The content block element
- * @returns {Object} The content configuration
+ * @returns {Object} The content configuration and content elements
  */
 function processCrossSellContent(block) {
   const contentConfig = readBlockConfig(block);
+  const contentElements = [];
   
   // Process any additional content elements
   [...block.children].forEach((row) => {
-    // Process any special content elements if needed
+    const cols = [...row.children];
+    // Skip configuration rows (which have 2 columns)
+    if (cols.length !== 2 || !cols[0].textContent.trim() || cols[0].textContent.trim().toLowerCase() === 'content') {
+      // This is likely a content element, not a configuration row
+      contentElements.push(row.cloneNode(true));
+    }
   });
   
-  return contentConfig;
+  return { config: contentConfig, elements: contentElements };
 }
 
 /**
@@ -238,10 +257,13 @@ export default function decorate(block) {
   // Find cross-sell content blocks
   const contentBlocks = [...block.querySelectorAll('.cross-sell-content')];
   let contentConfig = {};
+  let contentElements = [];
   
   if (contentBlocks.length > 0) {
     // Process the first content block
-    contentConfig = processCrossSellContent(contentBlocks[0]);
+    const processedContent = processCrossSellContent(contentBlocks[0]);
+    contentConfig = processedContent.config;
+    contentElements = processedContent.elements;
   }
   
   // Clear the block content
@@ -277,12 +299,12 @@ export default function decorate(block) {
   
   // Create content using either the content block config or the main config
   const content = createContent({
-    heading: contentConfig.heading || config.heading || 'Step into Spring from £399*',
-    description: contentConfig.description || config.description || 'Enjoy a refreshing spring break at Center Parcs, surrounded by blooming nature and endless family adventures.',
-    ctaText: contentConfig.ctatext || config.ctatext || 'Discover Spring Breaks',
-    ctaLink: contentConfig.ctalink || config.ctalink || '#',
-    note: contentConfig.note || config.note || 'Available to book for a limited time only*'
-  });
+    heading: contentConfig.config?.heading || config.heading || 'Step into Spring from £399*',
+    description: contentConfig.config?.description || config.description || 'Enjoy a refreshing spring break at Center Parcs, surrounded by blooming nature and endless family adventures.',
+    ctaText: contentConfig.config?.ctatext || config.ctatext || 'Discover Spring Breaks',
+    ctaLink: contentConfig.config?.ctalink || config.ctalink || '#',
+    note: contentConfig.config?.note || config.note || 'Available to book for a limited time only*'
+  }, contentElements);
   
   // Add timer and content to wrapper
   blockWrapper.appendChild(timer);
