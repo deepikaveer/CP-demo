@@ -176,11 +176,11 @@ function createContent(config) {
 }
 
 /**
- * Decorates the expandable cross-sell block
+ * Reads the configuration from the block
  * @param {Element} block The block element
+ * @returns {Object} The configuration object
  */
-export default function decorate(block) {
-  // Extract configuration from block
+function readBlockConfig(block) {
   const config = {};
   const rows = [...block.children];
   
@@ -192,27 +192,39 @@ export default function decorate(block) {
       
       if (key && value) {
         config[key] = value;
-        row.remove(); // Remove configuration row
       }
     }
   });
   
-  // Create container
-  const container = document.createElement('div');
-  container.className = 'expandable-cross-sell-container';
+  return config;
+}
+
+/**
+ * Decorates the expandable cross-sell block
+ * @param {Element} block The block element
+ */
+export default function decorate(block) {
+  // Extract configuration from block
+  const config = readBlockConfig(block);
   
   // Process image if present
   let backgroundImage = null;
-  rows.forEach((row) => {
+  [...block.children].forEach((row) => {
     const cols = [...row.children];
     if (cols.length >= 1) {
       const img = cols[0].querySelector('img');
       if (img) {
         backgroundImage = img;
-        row.remove(); // Remove image row
       }
     }
   });
+  
+  // Clear the block content
+  block.textContent = '';
+  
+  // Create container
+  const container = document.createElement('div');
+  container.className = 'expandable-cross-sell-container';
   
   // Create main block elements
   const blockWrapper = document.createElement('div');
