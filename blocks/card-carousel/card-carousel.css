@@ -122,6 +122,9 @@
 }
 
 /* Navigation controls */
+.card-carousel-wrapper {
+  max-width: 100% !important;
+}
 .card-carousel-navigation {
   display: flex;
   align-items: center;
@@ -221,11 +224,14 @@
 @media (max-width: 600px) {
   .card-carousel-item {
     flex: 0 0 100%; /* Show 1 card */
-    min-width: 200px; /* Allow smaller cards on mobile */
+    max-width: 100px; /* Allow smaller cards on mobile */
   }
   
+  .card-carousel-track {
+    overflow: scroll;
+  }
   .card-carousel-navigation {
-    flex-direction: column;
+    flex-direction: row;
     gap: 16px;
   }
   

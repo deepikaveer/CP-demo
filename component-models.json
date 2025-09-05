@@ -248,6 +248,86 @@
     ]
   },
   {
+    "id": "expandable-cross-sell",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "heading",
+        "label": "Heading",
+        "value": "Step into Spring from £399*",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "name": "description",
+        "value": "Enjoy a refreshing spring break at Center Parcs, surrounded by blooming nature and endless family adventures.",
+        "label": "Description",
+        "valueType": "string",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ctaText",
+        "label": "CTA Button Text",
+        "value": "Discover Spring Breaks",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "ctaLink",
+        "label": "CTA Button Link",
+        "value": "#",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "note",
+        "label": "Note Text",
+        "value": "Available to book for a limited time only*"
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "days",
+        "label": "Countdown Days",
+        "value": 28
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "hours",
+        "label": "Countdown Hours",
+        "value": 20
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "minutes",
+        "label": "Countdown Minutes",
+        "value": 45
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "seconds",
+        "label": "Countdown Seconds",
+        "value": 20
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "backgroundImage",
+        "label": "Background Image",
+        "multi": false,
+        "required": true
+      }
+    ]
+  },
+  {
     "id": "fragment",
     "fields": [
       {

@@ -19,7 +19,8 @@
       "fragment",
       "video",
       "card-carousel",
-      "thumbnail-carousel"
+      "thumbnail-carousel",
+      "expandable-cross-sell"
     ]
   },
   {
@@ -48,6 +49,10 @@
       "button",
       "title"
     ]
+  },
+  {
+    "id": "expandable-cross-sell",
+    "components": []
   },
   {
     "id": "thumbnail-carousel",
