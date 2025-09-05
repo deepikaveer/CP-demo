@@ -248,7 +248,48 @@
     ]
   },
   {
-    "id": "cross-sell-content",
+    "id": "expandable-cross-sell-card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "backgroundImage",
+        "label": "Background Image",
+        "multi": false,
+        "required": true
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "days",
+        "label": "Countdown Days",
+        "value": 28
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "hours",
+        "label": "Countdown Hours",
+        "value": 20
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "minutes",
+        "label": "Countdown Minutes",
+        "value": 45
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "seconds",
+        "label": "Countdown Seconds",
+        "value": 20
+      }
+    ]
+  },
+  {
+    "id": "card-content",
     "fields": [
       {
         "component": "text",

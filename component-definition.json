@@ -157,17 +157,33 @@
             }
           }
         },
-
         {
-          "title": "Cross-Sell Content",
-          "id": "cross-sell-content",
+          "title": "Expandable Cross-Sell Card",
+          "id": "expandable-cross-sell-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/columns/v1/columns",
+                "template": {
+                  "name": "Expandable Cross-Sell Card",
+                  "filter": "expandable-cross-sell-card",
+                  "columns": "1",
+                  "rows": "1"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Card Content",
+          "id": "card-content",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
-                  "name": "Cross-Sell Content",
-                  "model": "cross-sell-content"
+                  "name": "Card Content",
+                  "model": "card-content"
                 }
               }
             }
