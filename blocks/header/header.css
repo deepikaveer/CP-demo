@@ -266,3 +266,25 @@ header nav .nav-sections ul > li > ul > li {
 header nav .nav-tools {
   grid-area: tools;
 }
+
+header .highlight.nav-brand {
+    .default-content-wrapper {
+        width: 100%; /* Or a specific width */
+        overflow: hidden;
+    }
+
+    p {
+        display: inline-block; /* Or flexbox for multiple items */
+        white-space: nowrap;
+        animation: scroll-left 10s linear infinite; /* Adjust duration as needed */
+    }
+
+    @keyframes scroll-left {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%); /* Adjust based on content width */
+        }
+    }
+}
