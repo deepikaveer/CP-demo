@@ -136,10 +136,6 @@
           {
             "name": "Highlight",
             "value": "highlight"
-          },
-          {
-            "name": "With Black Background",
-            "value": "with-black-background"
           }
         ]
       }
@@ -275,6 +271,20 @@
         "name": "rows",
         "value": "",
         "label": "Rows"
+      },
+      {
+        "component": "select",
+        "name": "classes",
+        "value": "",
+        "label": "Columns",
+        "description": "Select additional style classes for the columns block",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "With Black Background",
+            "value": "with-black-background"
+          }
+        ]
       }
     ]
   },
