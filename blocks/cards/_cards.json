@@ -13,7 +13,31 @@
             }
           }
         }
-      }
+      },
+      "fields": [
+        {
+          "component": "select",
+          "name": "classes",
+          "value": "",
+          "label": "Cards Style Classes",
+          "description": "Select additional style classes for the cards block",
+          "valueType": "string",
+          "options": [
+            {
+              "name": "Expandable Cross-Sell",
+              "value": "expandable-cross-sell-wrapper"
+            },
+            {
+              "name": "Card with Button",
+              "value": "button-card-wrapper"
+            },
+            {
+              "name": "Card with bg color",
+              "value": "bg-color-card-wrapper"
+            }
+          ]
+        }
+      ]
     },
     {
       "title": "Card",
