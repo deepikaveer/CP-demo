@@ -33,17 +33,7 @@
             {
               "name": "Highlight",
               "value": "highlight"
-            }
-          ]
-        },
-        {
-          "component": "select",
-          "name": "classes",
-          "value": "",
-          "label": "Columns",
-          "description": "Select additional style classes for the columns block",
-          "valueType": "string",
-          "options": [
+            },
             {
               "name": "With Black Background",
               "value": "with-black-background"
