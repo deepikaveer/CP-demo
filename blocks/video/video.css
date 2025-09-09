@@ -136,3 +136,8 @@
     border-left: 16px solid #fff;
   }
 }
+
+#s7smartcropvideo_div.s7smartcropvideoviewer{
+    width:100%; 
+    height:auto;
+}
