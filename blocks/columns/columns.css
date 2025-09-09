@@ -31,3 +31,9 @@
     order: unset;
   }
 }
+.columns.with-black-background {
+    background: #1D1D1D;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+}

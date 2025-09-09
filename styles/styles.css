@@ -16,12 +16,12 @@
   --light-color: #f8f8f8;
   --dark-color: #505050;
   --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  --link-color: #647E1B;
+  --link-hover-color: #495c14;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --body-font-family: 'open-sans', 'Open Sans', Arial, sans-serif;
+  --heading-font-family: 'open-sans', 'Open Sans', Arial, sans-serif;
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -42,13 +42,13 @@
 
 /* fallback fonts */
 @font-face {
-  font-family: roboto-condensed-fallback;
+  font-family: 'open-sans', 'Open Sans', Arial, sans-serif;
   size-adjust: 88.82%;
   src: local('Arial');
 }
 
 @font-face {
-  font-family: roboto-fallback;
+  font-family: 'open-sans', 'Open Sans', Arial, sans-serif;
   size-adjust: 99.529%;
   src: local('Arial');
 }
