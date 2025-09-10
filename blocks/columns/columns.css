@@ -37,3 +37,7 @@
     padding: 20px;
     border-radius: 15px;
 }
+
+.columns-wrapper:first-of-type {
+  margin-top: 60px;
+}

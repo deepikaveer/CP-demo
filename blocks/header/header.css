@@ -5,6 +5,7 @@ header .nav-wrapper {
   z-index: 2;
   position: fixed;
   top: 40px;
+  height: 100px;
 }
 
 header .nav-sections {
@@ -16,7 +17,7 @@ header .nav-sections {
   align-items: center;
   gap: 0 24px;
   margin: auto;
-  max-width: 1248px;
+  max-width: 100% !important;
   height: var(--nav-height);
   padding: 0 24px;
   font-family: var(--body-font-family);
