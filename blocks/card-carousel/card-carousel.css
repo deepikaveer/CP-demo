@@ -122,9 +122,6 @@
 }
 
 /* Navigation controls */
-.card-carousel-wrapper {
-  max-width: 100% !important;
-}
 .card-carousel-navigation {
   display: flex;
   align-items: center;

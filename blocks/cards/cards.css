@@ -99,3 +99,26 @@
 }
 
 
+.cards.button-card-wrapper.block > ul,
+.bg-color-card-wrapper.cards > ul {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cards.button-card-wrapper > ul > li {
+  border-radius: 15px;
+}
+.bg-color-card-wrapper.cards > ul > li {
+  background-color: #F5F5F5;
+}
+
+.cards.button-card-wrapper > ul .cards-card-image,
+.cards.button-card-wrapper > ul .cards-card-body {
+}
+
+.cards.button-card-wrapper > ul > .cards-card-body {
+  bottom: 0;
+  right: 0 ;
+}
+bg-color-card-wrapper.cards > ul > li .sub {
+  text-decoration: underline;
+}

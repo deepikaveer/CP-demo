@@ -18,6 +18,7 @@
   --text-color: #131313;
   --link-color: #647E1B;
   --link-hover-color: #495c14;
+  --nav-background-color: #FAFAFA;
 
   /* fonts */
   --body-font-family: 'open-sans', 'Open Sans', Arial, sans-serif;
@@ -37,7 +38,7 @@
   --heading-font-size-xs: 22px;
 
   /* nav height */
-  --nav-height: 110px;
+  --nav-height: 80px;
 }
 
 /* fallback fonts */

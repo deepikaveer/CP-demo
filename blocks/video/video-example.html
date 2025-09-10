@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scene7 SmartCropVideoViewer Example</title>
+  <link rel="stylesheet" href="../../styles/styles.css">
+  <link rel="stylesheet" href="video.css">
+  <style>
+    body {
+      display: block;
+      padding: 20px;
+    }
+    
+    .example-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="example-container">
+    <h1>Scene7 SmartCropVideoViewer Example</h1>
+    
+    <div class="video block">
+      <!-- Video Configuration -->
+      <div>
+        <div>Asset</div>
+        <div>centerparcs/99933 - 42 - Web Hero Videos - Peak Summer - Original-AVS</div>
+      </div>
+      <div>
+        <div>Config</div>
+        <div>centerparcs/Hero-5</div>
+      </div>
+    </div>
+  </div>
+  
+  <script type="module">
+    import { createOptimizedPicture } from '../../scripts/aem.js';
+    import decorate from './video.js';
+    
+    // Initialize the block
+    const block = document.querySelector('.video');
+    if (block) {
+      decorate(block);
+    }
+  </script>
+</body>
+</html>

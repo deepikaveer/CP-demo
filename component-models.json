@@ -479,106 +479,24 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "videoId",
-        "label": "Video ID/URL",
-        "value": ""
-      },
-      {
-        "component": "select",
-        "valueType": "string",
-        "name": "source",
-        "label": "Video Source",
-        "value": "vimeo",
-        "options": [
-          {
-            "text": "Vimeo",
-            "value": "vimeo"
-          },
-          {
-            "text": "YouTube",
-            "value": "youtube"
-          },
-          {
-            "text": "YouTube (without poster)",
-            "value": "youtube_no_poster"
-          },
-          {
-            "text": "MP4 Video",
-            "value": "mp4"
-          },
-          {
-            "text": "MP4 Video (without poster image)",
-            "value": "mp4_no_poster"
-          },
-          {
-            "text": "MP4 Video w/ autoplay variant",
-            "value": "mp4_autoplay"
-          },
-          {
-            "text": "YouTube Video w/ autoplay variant",
-            "value": "youtube_autoplay"
-          },
-          {
-            "text": "Vimeo Video w/ autoplay variant",
-            "value": "vimeo_autoplay"
-          }
-        ]
-      },
-      {
-        "component": "reference",
-        "valueType": "string",
-        "name": "poster",
-        "label": "Poster Image",
-        "multi": false
+        "name": "asset",
+        "label": "Scene7 Asset ID",
+        "value": "centerparcs/99933 - 42 - Web Hero Videos - Peak Summer - Original-AVS",
+        "required": true
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "posterAlt",
-        "label": "Poster Image Alt Text",
-        "value": ""
-      },
-      {
-        "component": "number",
-        "valueType": "number",
-        "name": "posterWidth",
-        "label": "Poster Image Width",
-        "value": 1600
-      },
-      {
-        "component": "number",
-        "valueType": "number",
-        "name": "posterHeight",
-        "label": "Poster Image Height",
-        "value": 900
+        "name": "config",
+        "label": "Scene7 Config",
+        "value": "centerparcs/Hero-5"
       },
       {
         "component": "checkbox",
-        "name": "allowFullscreen",
-        "label": "Allow Fullscreen",
+        "name": "autoplay",
+        "label": "Autoplay",
         "valueType": "boolean",
-        "value": true
-      },
-      {
-        "component": "checkbox",
-        "name": "pictureInPicture",
-        "label": "Allow Picture-in-Picture",
-        "valueType": "boolean",
-        "value": true
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "playButtonTitle",
-        "label": "Play Button Title",
-        "value": "Play"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "title",
-        "label": "Video Accessibility Title",
-        "value": "Video Content"
+        "value": false
       }
     ]
   }
