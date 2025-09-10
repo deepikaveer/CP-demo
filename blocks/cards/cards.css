@@ -26,6 +26,9 @@
   object-fit: cover;
 }
 
+.cards-wrapper {
+  padding: 20px 0;
+}
 /* Expandable Cross-Sell Card Styles */
 
 .expandable-cross-sell-wrapper {

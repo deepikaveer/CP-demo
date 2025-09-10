@@ -7,13 +7,13 @@
 
 .video-wrapper {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 100% !important;
+  padding: 0 !important;
 }
 
 .video {
   text-align: center;
-  width: 100%;
+  width: 100%;  
   margin: 0 auto;
 }
 
