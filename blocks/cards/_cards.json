@@ -73,6 +73,10 @@
             {
               "name": "Card with bg color",
               "value": "bg-color-card-wrapper"
+            },
+            {
+              "name": "Card with green bg color",
+              "value": "bg-green-color-card-wrapper"
             }
           ]
         }

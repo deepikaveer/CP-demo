@@ -111,6 +111,15 @@
   background-color: #F5F5F5;
 }
 
+.bg-green-color-card-wrapper.cards > ul {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 0;
+}
+.bg-green-color-card-wrapper.cards > ul > li {
+  background-color: #647E1B;
+}
+
+
 .cards.button-card-wrapper > ul .cards-card-image,
 .cards.button-card-wrapper > ul .cards-card-body {
 }
