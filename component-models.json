@@ -285,6 +285,10 @@
         "valueType": "string",
         "options": [
           {
+            "name": "With Tisa Font",
+            "value": "with-tisa-font"
+          },
+          {
             "name": "With Black Background",
             "value": "with-black-background"
           }

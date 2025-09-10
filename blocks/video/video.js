@@ -45,7 +45,7 @@ function embedScene7(asset, configName) {
       params: {
         serverurl: 'https://centerparcs.scene7.com/is/image/',
         contenturl: 'https://centerparcs.scene7.com/is/content/',
-        config: configName || 'centerparcs/Hero-5',
+        config: 'centerparcs/Hero-5',
         videoserverurl: 'https://centerparcs.scene7.com/is/content',
         asset: asset || 'centerparcs/99933 - 42 - Web Hero Videos - Peak Summer - Original-AVS'
       }

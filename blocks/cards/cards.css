@@ -107,7 +107,8 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-.cards.button-card-wrapper > ul > li {
+.cards.button-card-wrapper > ul > li,
+.bg-color-card-wrapper.cards > ul > li {
   border-radius: 15px;
 }
 .bg-color-card-wrapper.cards > ul > li {

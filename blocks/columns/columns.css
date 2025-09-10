@@ -37,6 +37,9 @@
     padding: 20px;
     border-radius: 15px;
 }
+.columns.with-tisa-font {
+  font-family: var(--tisa-font-family);
+}
 
 .columns-wrapper:first-of-type {
   margin-top: 60px;
