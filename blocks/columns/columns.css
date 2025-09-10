@@ -37,8 +37,13 @@
     padding: 20px;
     border-radius: 15px;
 }
-.columns.with-tisa-font {
+.columns.with-tisa-font,
+.columns.with-tisa-font h2 {
   font-family: var(--tisa-font-family);
+}
+.columns.with-tisa-font h2 {
+  font-weight: normal;
+  font-size: 44px;
 }
 
 .columns-wrapper:first-of-type {
